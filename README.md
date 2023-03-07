@@ -1,60 +1,55 @@
-# cross-browser-tab-transfers
+# Cross Browser Tab Transfer
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Store and edit browser tab groups, personnaly I made it with the idea of essentially
+using it to transfer tabs from a browser to an other.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## It already exists ?
 
-## Running the application in dev mode
+Maybe, but I did't find it. Especially not in open source. I also have to admit that I
+use a lot of different browser on different devices (i.e. Safari on iOS, Brave on MacOS,
+Firefox on Ubuntu) so passing my tabs from my iPhone to my destop at the end of my jog
+always seemed a challenge.
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./gradlew quarkusDev
-```
+## Install
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+You thorically only need Java 17 (I use GraalVM as it is the
+target platform) for the JVM and Kotlin (you can see the target
+version in [build.gradle](./build.gradle.kts))
 
-## Packaging and running the application
-
-The application can be packaged using:
-```shell script
+```sh
 ./gradlew build
 ```
-It produces the `quarkus-run.jar` file in the `build/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/quarkus-app/lib/` directory.
 
-The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
+## Technical details
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./gradlew build -Dquarkus.package.type=uber-jar
-```
+This backend is built with :
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar build/*-runner.jar`.
+- Kotlin
+- Quarkus
+- Following a usecase based hexagonal architecture, close to the Clean Architecture
 
-## Creating a native executable
+I plan on using :
 
-You can create a native executable using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native
-```
+- Ory/Hydra as the authorization server
+- A simple SPA frontend using Preact or Svelte
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
-```
+## License
 
-You can then execute your native executable with: `./build/cross-browser-tab-transfers-1.0.0-SNAPSHOT-runner`
+GPLv3, see [LICENSE](./LICENSE.txt).
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
+Cross Browser Tab Transfer : transfer tabs from / to multiple browsers.
 
-## Related Guides
+Copyright (C) 2023 Fabien Leite
 
-- Kotlin ([guide](https://quarkus.io/guides/kotlin)): Write your services in Kotlin
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-## Provided Code
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
